@@ -100,8 +100,25 @@ namespace raytracer.Tests
 
             RayTuple vec2 = RayTuple.createVector(1, 2, 3);
             Assert.Equal(RayTuple.createVector(1/Math.Sqrt(14), 2/Math.Sqrt(14), 3/Math.Sqrt(14)), vec2.normalize());
-
         }
+
+        [Fact]
+        public void TestDotProduct()
+        {
+            RayTuple vec1 = RayTuple.createVector(1, 2, 3);
+            RayTuple vec2 = RayTuple.createVector(2, 3, 4);
+            Assert.Equal(20, vec1 *vec2);
+        }
+
+        [Fact]
+        public void TestCrossProduct()
+        {
+            RayTuple vec1 = RayTuple.createVector(1, 2, 3);
+            RayTuple vec2 = RayTuple.createVector(2, 3, 4);
+            Assert.Equal(RayTuple.createVector(-1, 2, -1), vec1.cross(vec2));
+            Assert.Equal(RayTuple.createVector(1, -2, 1), vec2.cross(vec1));
+        }
+
     }
 }
 
