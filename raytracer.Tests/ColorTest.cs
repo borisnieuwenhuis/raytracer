@@ -29,7 +29,7 @@ namespace raytracer.Tests
             Color color1 = new Color(0.9, 0.6, 0.75);
             Color color2 = new Color(0.7, 0.1, 0.25);
             Color color3 = color1 - color2;
-            Assert.Equal(new Color(0.2, 0.5, 0.5), color3);
+            Assert.True(new Color(0.2, 0.5, 0.5) == color3);
         }
 
         [Fact]
@@ -43,9 +43,9 @@ namespace raytracer.Tests
         public void TestMultiplyColorColor()
         {
             Color color1 = new Color(1, 0.2, 0.4);
-            Color color2 = new Color(1, 0.2, 0.4);
+            Color color2 = new Color(0.9, 1, 0.1);
             Color color3 = new Color(0.9, 0.2, 0.04);
-            Assert.Equal(color3, color1 * color2);
+            Assert.True(color3 == color1 * color2);
         }
 
     }
