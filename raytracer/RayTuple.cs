@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Numerics;
+using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace raytracer
@@ -64,7 +66,46 @@ namespace raytracer
         {
             return Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
         }
-		
-	}
+
+        public RayTuple normalize()
+        {
+            double magnitude = this.magnitude();
+            return RayTuple.createVector(this.X/magnitude, this.Y/magnitude, this.Z/magnitude);
+        }
+
+        public override readonly bool Equals(object? obj)
+        {
+            if (obj is null) 
+            {
+                return false;
+            }
+            if (obj is not RayTuple)
+            {
+                return false;
+            }
+            RayTuple rayTuple = (RayTuple)obj;
+            return rayTuple.W == this.W && rayTuple.X == this.X &&
+                rayTuple.Y == this.Y && rayTuple.Z == this.Z;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(x, y, z, w);
+        }
+        public override string ToString()
+        {
+            return System.String.Format("X:{0}, Y:{1}, Z:{2}, W:{3}", x, y, z, w);
+        }
+
+        public static bool operator ==(RayTuple left, RayTuple right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(RayTuple left, RayTuple right)
+        {
+            return !(left == right);
+        }
+    }
 }
 

@@ -2,7 +2,8 @@
 namespace raytracer.Tests
 {
 	public class RayTupleTest
-	{
+    {
+        
         [Fact]
         public void TestAdd()
         {
@@ -87,6 +88,18 @@ namespace raytracer.Tests
 
             RayTuple vec2 = RayTuple.createVector(-1, -2, -3);
             Assert.Equal(Math.Sqrt(14), vec2.magnitude());
+
+        }
+
+        [Fact]
+        public void TestNormalize()
+        {
+            RayTuple vec1 = RayTuple.createVector(4, 0, 0);
+            Assert.Equal(RayTuple.createVector(1, 0, 0), vec1.normalize());
+
+
+            RayTuple vec2 = RayTuple.createVector(1, 2, 3);
+            Assert.Equal(RayTuple.createVector(1/Math.Sqrt(14), 2/Math.Sqrt(14), 3/Math.Sqrt(14)), vec2.normalize());
 
         }
     }
