@@ -1,0 +1,5 @@
+/Users/boris/Projects/raytracer/raytracertest/obj/Debug/net7.0/raytracertest.csproj.AssemblyReference.cache
+/Users/boris/Projects/raytracer/raytracertest/obj/Debug/net7.0/raytracertest.GeneratedMSBuildEditorConfig.editorconfig
+/Users/boris/Projects/raytracer/raytracertest/obj/Debug/net7.0/raytracertest.AssemblyInfoInputs.cache
+/Users/boris/Projects/raytracer/raytracertest/obj/Debug/net7.0/raytracertest.AssemblyInfo.cs
+/Users/boris/Projects/raytracer/raytracertest/obj/Debug/net7.0/raytracertest.csproj.CoreCompileInputs.cache
