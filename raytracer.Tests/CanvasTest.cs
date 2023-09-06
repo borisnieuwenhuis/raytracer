@@ -30,6 +30,22 @@ namespace raytracer.Tests
             Assert.Equal(red, canvas.pixelAt(2, 3));
             
         }
+
+        [Fact]
+        public void TestCanvasRow()
+        {
+            Canvas canvas = new Canvas(4, 3);
+            Color red = new Color(1, 0, 0);
+            Color green = new Color(0, 1, 0);
+            canvas.writePixel(0, 2, red);
+            canvas.writePixel(1, 2, green);
+            canvas.writePixel(2, 2, red);
+            canvas.writePixel(3, 2, red);
+
+            Color[] row = { red, green, red , red};
+            Assert.Equal(row, canvas.row(2));
+
+        }
     }
 }
 
