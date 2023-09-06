@@ -60,6 +60,10 @@ namespace raytracer
 			this.z = z;
 		}
 
+        public double magnitude()
+        {
+            return Math.Sqrt(Math.Pow(x, 2) + Math.Pow(y, 2) + Math.Pow(z, 2));
+        }
 		
 	}
 }

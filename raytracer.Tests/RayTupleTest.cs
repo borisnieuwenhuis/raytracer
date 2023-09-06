@@ -78,6 +78,17 @@ namespace raytracer.Tests
             Assert.Equal(0.5, result.Z);
             Assert.Equal(0.5, result.W);
         }
+
+        [Fact]
+        public void TestMagnitude()
+        {
+            RayTuple vec1 = RayTuple.createVector(1, 1, 1);
+            Assert.Equal(Math.Sqrt(3), vec1.magnitude());
+
+            RayTuple vec2 = RayTuple.createVector(-1, -2, -3);
+            Assert.Equal(Math.Sqrt(14), vec2.magnitude());
+
+        }
     }
 }
 
