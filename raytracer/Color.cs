@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Numerics;
 using System.Reflection.Metadata;
 
@@ -6,6 +7,8 @@ namespace raytracer
 {
 	public class Color: Tuple<double, double, double>
     {
+        public static readonly Color Black = new Color(0, 0, 0);
+
         public Color(double item1, double item2, double item3) : base(item1, item2, item3)
         {
         }
