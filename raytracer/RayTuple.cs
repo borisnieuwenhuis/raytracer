@@ -103,10 +103,7 @@ namespace raytracer
                 this.y * r.z - this.z * r.y,
                 this.z * r.x - this.x * r.z,
                 this.x * r.y - this.y * r.x);
-
         }
-
-
     }
 }
 
