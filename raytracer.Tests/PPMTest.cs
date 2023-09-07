@@ -1,8 +1,8 @@
 ﻿using System;
 namespace raytracer.Tests
 {
-	public class PPMTest
-	{
+    public class PPMTest
+    {
         [Fact]
         public void TestCanvasHeader()
         {
@@ -26,7 +26,7 @@ namespace raytracer.Tests
             canvas.writePixel(2, 1, color2);
             canvas.writePixel(4, 2, color3);
             String colors = ppm.colorString(canvas, scaleFactor: 255);
-            
+
             String[] expectedColorsLines = new String[] {
                 "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
                 "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0",
@@ -59,6 +59,16 @@ namespace raytracer.Tests
 
             Assert.Equal(expectedColors, colors);
         }
+
+        [Fact]
+        public void testNewLineEnding()
+        {
+            Canvas canvas = new Canvas(5, 3);
+            PPM ppm = new PPM(canvas);
+            String colors = ppm.colorString(canvas);
+            Assert.EndsWith("\n", colors);
+        }
     }
+
 }
 

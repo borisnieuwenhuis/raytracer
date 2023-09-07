@@ -61,7 +61,7 @@ namespace raytracer
                 }
                 
             }
-            return String.Join("\n", s);
+            return String.Join("\n", s) + "\n";
         }
 
     }
