@@ -32,6 +32,17 @@ namespace raytracer
             Color color = values[x, y];
 			return color is null ? Color.Black : color;
         }
+
+		public void setToOneColor(Color c)
+		{
+			for (int i = 0; i < this.Width; i++)
+			{
+				for (int j = 0; j < this.Height; j++)
+				{
+					writePixel(i, j, c);
+				}
+			}
+		}
     }
 }
 

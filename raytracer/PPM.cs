@@ -41,7 +41,25 @@ namespace raytracer
                         scale(color.R, scaleFactor), scale(color.G, scaleFactor), scale(color.B, scaleFactor)));    
                 }
                 rowIndex += 1;
-                s.Add(String.Join(" ", line));
+
+                String lineString = String.Join(" ", line);
+
+                if (lineString.Length > 70)
+                {
+                    int spacePos = 0;
+                    int nextSpacePos = lineString.IndexOf(" ");
+                    while (nextSpacePos < 70)
+                    {
+                        spacePos = nextSpacePos;
+                        nextSpacePos = lineString.IndexOf(" ", spacePos + 1);
+                    }
+                    s.Add(lineString.Substring(0, spacePos).Trim());
+                    s.Add(lineString.Substring(spacePos + 1).Trim());
+                }
+                else {
+                    s.Add(lineString);
+                }
+                
             }
             return String.Join("\n", s);
         }

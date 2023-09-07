@@ -36,6 +36,29 @@ namespace raytracer.Tests
             String expectedColors = String.Join("\n", expectedColorsLines).Trim('\n');
             Assert.Equal(expectedColors, colors);
         }
+
+        [Fact]
+        public void testLongLines()
+        {
+            Canvas canvas = new Canvas(10, 2);
+            canvas.setToOneColor(new Color(1, 0.8, 0.6));
+
+            PPM ppm = new PPM(canvas);
+            String colors = ppm.colorString(canvas, scaleFactor: 255);
+
+            String[] expectedColorsLines = new String[] {
+                "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204",
+                "153 255 204 153 255 204 153 255 204 153 255 204 153",
+                "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204",
+                "153 255 204 153 255 204 153 255 204 153 255 204 153"
+            };
+
+            String expectedColors = String.Join("\n", expectedColorsLines).Trim('\n');
+            File.WriteAllText("/Users/boris/Projects/raytracer/expected.text", expectedColors);
+            File.WriteAllText("/Users/boris/Projects/raytracer/actual.text", colors);
+
+            Assert.Equal(expectedColors, colors);
+        }
     }
 }
 
