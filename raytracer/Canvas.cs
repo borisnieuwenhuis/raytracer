@@ -17,6 +17,11 @@ namespace raytracer
 
         public void writePixel(int x, int y, Color color)
 		{
+			if (x < 0 || x >= values.GetLongLength(0) || y < 0 || y >= values.GetLongLength(1))
+			{
+				return;
+			}
+			Console.WriteLine("setting {0}, {1} to {2}", x, y, color);
 			values[x, y] = color;
 		}
 

@@ -25,15 +25,15 @@ namespace raytracer.Tests
             canvas.writePixel(0, 0, color1);
             canvas.writePixel(2, 1, color2);
             canvas.writePixel(4, 2, color3);
-            String colors = ppm.colorString(canvas, scaleFactor: 255);
+            String colors = ppm.colorString(scaleFactor: 255);
 
             String[] expectedColorsLines = new String[] {
                 "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0",
                 "0 0 0 0 0 0 0 128 0 0 0 0 0 0 0",
-                "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255"
+                "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255\n"
             };
 
-            String expectedColors = String.Join("\n", expectedColorsLines).Trim('\n');
+            String expectedColors = String.Join("\n", expectedColorsLines);
             Assert.Equal(expectedColors, colors);
         }
 
@@ -44,19 +44,17 @@ namespace raytracer.Tests
             canvas.setToOneColor(new Color(1, 0.8, 0.6));
 
             PPM ppm = new PPM(canvas);
-            String colors = ppm.colorString(canvas, scaleFactor: 255);
+            String colors = ppm.colorString(scaleFactor: 255);
 
             String[] expectedColorsLines = new String[] {
                 "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204",
                 "153 255 204 153 255 204 153 255 204 153 255 204 153",
                 "255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204",
-                "153 255 204 153 255 204 153 255 204 153 255 204 153"
+                "153 255 204 153 255 204 153 255 204 153 255 204 153\n"
             };
 
-            String expectedColors = String.Join("\n", expectedColorsLines).Trim('\n');
-            File.WriteAllText("/Users/boris/Projects/raytracer/expected.text", expectedColors);
-            File.WriteAllText("/Users/boris/Projects/raytracer/actual.text", colors);
-
+            String expectedColors = String.Join("\n", expectedColorsLines);
+            
             Assert.Equal(expectedColors, colors);
         }
 
@@ -65,7 +63,7 @@ namespace raytracer.Tests
         {
             Canvas canvas = new Canvas(5, 3);
             PPM ppm = new PPM(canvas);
-            String colors = ppm.colorString(canvas);
+            String colors = ppm.colorString();
             Assert.EndsWith("\n", colors);
         }
     }

@@ -27,8 +27,14 @@ namespace raytracer
             return scaleFactor * value < 255 ? Math.Ceiling(scaleFactor * value) : 255;
         }
 
+        public void writeFile(String path)
+        {
+            String imageContent = String.Format("{0}\n{1}", header(), colorString());
+            File.WriteAllText(path, imageContent);
+        }
 
-        public String colorString(Canvas canvas, int scaleFactor = 1)
+
+        public String colorString(int scaleFactor = 1)
         {
             List<String> s = new List<string>();
             while (rowIndex < this.canvas.Height)
