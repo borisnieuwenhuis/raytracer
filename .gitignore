@@ -402,4 +402,7 @@ ASALocalRun/
 .mfractor/
 
 # Local History for Visual Studio
-.localhistory/
+.localhistory/ignoreme
+ignoreme
+test.expected
+test.outcome
