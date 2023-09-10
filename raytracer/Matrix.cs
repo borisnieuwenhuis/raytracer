@@ -128,6 +128,14 @@ namespace raytracer
             return HashCode.Combine(values);
         }
 
+        public double determinant()
+        {
+            Debug.Assert(values.GetLongLength(0) == values.GetLongLength(1));
+            Debug.Assert(values.GetLongLength(0) == 2);
+
+            return values[0, 0] * values[1, 1] - values[0, 1] * values[1, 0];
+        }
+
 
     }
 }

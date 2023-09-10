@@ -56,11 +56,12 @@ namespace raytracer.Tests
 
         private void fillMatrix(Matrix m, double[] values)
         {
+            int yDimension = m.Row(0).Length;
             for (int i = 0; i < values.GetLength(0); i++)
             {
                 double value = values[i];
-                int row = (int)Math.Floor((double)i / 4);
-                int column = i % 4;
+                int row = (int)Math.Floor((double)i / yDimension);
+                int column = i % yDimension;
                 m.Set(row, column, value);
             }
         }
@@ -131,6 +132,20 @@ namespace raytracer.Tests
 
 
             Assert.Equal(m1, indentity * m1);
+        }
+
+        [Fact]
+        public void testDeterminant()
+        {
+            double[] mValues = {
+                1, 5, -3, 2
+            };
+
+            Matrix m1 = new Matrix(2, 2);
+            fillMatrix(m1, mValues);
+
+            
+            Assert.Equal(17, m1.determinant());
         }
     }
 }
