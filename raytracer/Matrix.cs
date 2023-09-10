@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace raytracer
@@ -38,6 +41,23 @@ namespace raytracer
                 }
             }
             return m;
+        }
+
+        public static Tuple<double, double, double, double> operator *(Matrix left, Tuple<double, double, double, double> right)
+        {
+            double[] result = new double[4];
+
+            for (int i = 0; i < 4; i++)
+            {
+                double[] row = left.Row(i);
+                RayTuple leftTuple = new RayTuple(row[0], row[1], row[2], row[3]);
+                RayTuple rightTuple = new RayTuple(right.Item1, right.Item2, right.Item3, right.Item4);
+
+                result[i] = leftTuple* rightTuple;
+
+            }
+
+            return Tuple.Create(result[0], result[1], result[2], result[3]);
         }
 
         public override string ToString()

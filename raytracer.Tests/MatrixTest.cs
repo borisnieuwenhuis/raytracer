@@ -91,6 +91,26 @@ namespace raytracer.Tests
 
             Assert.Equal(m3, m1 * m2);
         }
+
+        [Fact]
+        public void testMultTuple()
+        {
+            double[] m1Values = {
+                1, 2, 3, 4, 2, 4, 4, 2, 8, 6, 4, 1, 0, 0, 0, 1
+            };
+
+            Matrix m1 = new Matrix(4, 4);
+            fillMatrix(m1, m1Values);
+
+            Tuple<double, double, double, double> tuple = Tuple.Create(1.0, 2.0, 3.0, 1.0);
+
+            double[] m3Values = {
+                20, 22, 50, 48, 44, 54, 114, 108, 40, 58, 110, 102, 16, 26, 46, 42
+            };
+
+            Tuple<double, double, double, double> result = Tuple.Create(18.0, 24.0, 33.0, 1.0);
+            Assert.Equal(result, m1 * tuple);
+        }
     }
 }
 
