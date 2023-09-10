@@ -111,6 +111,27 @@ namespace raytracer.Tests
             Tuple<double, double, double, double> result = Tuple.Create(18.0, 24.0, 33.0, 1.0);
             Assert.Equal(result, m1 * tuple);
         }
+
+        [Fact]
+        public void testIdentityMatrix()
+        {
+            double[] m1Values = {
+                1, 2, 3, 4, 2, 4, 4, 2, 8, 6, 4, 1, 0, 0, 0, 1
+            };
+
+            Matrix m1 = new Matrix(4, 4);
+            fillMatrix(m1, m1Values);
+
+            double[] identityValues = {
+                1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+            };
+
+            Matrix indentity = new Matrix(4, 4);
+            fillMatrix(indentity, identityValues);
+
+
+            Assert.Equal(m1, indentity * m1);
+        }
     }
 }
 

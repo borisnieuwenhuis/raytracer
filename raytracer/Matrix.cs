@@ -53,7 +53,7 @@ namespace raytracer
                 RayTuple leftTuple = new RayTuple(row[0], row[1], row[2], row[3]);
                 RayTuple rightTuple = new RayTuple(right.Item1, right.Item2, right.Item3, right.Item4);
 
-                result[i] = leftTuple* rightTuple;
+                result[i] = leftTuple * rightTuple;
 
             }
 
